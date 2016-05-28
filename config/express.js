@@ -3,16 +3,18 @@ var load = require('express-load');
 var bodyParser = require('body-parser');
 
 module.exports = function() {
-	var app = express();
+    var app = express();
 
-	app.use(express.static('./public'));
-	app.use(bodyParser());
+    app.use(express.static('./public'));
+    app.use(bodyParser());
 
-	load('models', {cwd:'app'})
-		.then('controllers')
-		.then('routes')
-		.into(app);
+    load('models', {
+            cwd: 'app'
+        })
+        .then('models')
+        .then('controllers')
+        .then('routes')
+        .into(app);
 
-	return app;
+    return app;
 }
-

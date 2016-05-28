@@ -1,9 +1,9 @@
 module.exports = function(app) {
 
-	var Controller = app.controllers.contato;
+    var Controller = app.controllers.contato;
 
-	app.get('/api/contatos',Controller.getContato);
-	app.post('/api/contato', Controller.saveContato);
-	app.delete('/api/contato/:id', Controller.deleteContato);
-	app.put('/api/contato/:id', Controller.updateContato);
+    app.get('/api/contatos/:id?', Controller.getContato);
+    app.post('/api/contatos', Controller.saveContato);
+    app.delete('/api/contatos/:id', Controller.deleteContato);
+    app.put('/api/contatos/:id', Controller.updateContato);
 }
