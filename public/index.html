@@ -1,12 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<title>Bootcamp MEAN</title>
+	<meta charset="UTF-8">
+	<title>Agenda MEAN</title>
+
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
 </head>
 
-<body>
-	<h1>Just a hello, my old friend!</h1>
+<!-- Especifica qual o módulo (ng-app) que a página vai utilizar -->
+
+<body ng-app="app.agenda">
+
+	<div class="navbar navbar-primary" ng-controller="MenuController">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="javascript:void(0)">Agenda MEAN</a>
+			</div>
+			<div class="navbar-collapse collapse navbar-warning-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="#/contatos">Contatos</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- ng-view é responsável por exibir as views das rotas. -->
+	<div ng-view class="col-md-8 col-md-offset-2 container"></div>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<!-- Importação do angular -->
+	<script src="bower_components/angular/angular.min.js"></script>
+
+	<!-- Importação do angular route -->
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+
+	<!-- Importação do módulo agenda -->
+	<script src="js/app.js"></script>
+
+	<!-- Importação da service da api -->
+	<script src="js/services/apiService.js"></script>
+
+	<!-- Importação do controller do menu -->
+	<script src="js/controllers/menuCtrl.js"></script>
+
+	<!-- Importação do controllers da view de contatos -->
+	<script src="js/controllers/contatosCtrl.js"></script>
+
+	<!-- Importação do controller da view do contato -->
+	<script src="js/controllers/contatoCtrl.js"></script>
 </body>
 
 </html>

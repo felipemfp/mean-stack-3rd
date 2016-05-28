@@ -14,7 +14,7 @@ module.exports = function(app) {
                     return response.status(500).send(error);
             });
         } else {
-            Contato.find(function(error, contatos) {
+            Contato.find(request.query, function(error, contatos) {
                 if (!error)
                     return response.status(200).send(contatos);
                 else
@@ -67,7 +67,7 @@ module.exports = function(app) {
 
         contato.nome = contatoFromBody.nome;
         contato.sobrenome = contatoFromBody.sobrenome;
-        contato.idade = contatoFromBody.idade;
+        contato.idade = contatoFromBody.idade || null;
         contato.email = contatoFromBody.email;
         contato.telefone = contatoFromBody.telefone;
 
